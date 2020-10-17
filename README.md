@@ -6,4 +6,6 @@ Refer to the [Gin documentation](https://gin-gonic.com/docs/) for how to execute
 
 ## Contributing
 
-Are yo
+Are you missing an example? Please feel free to open an issue or commit one pull request.
+
+Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for instructions
