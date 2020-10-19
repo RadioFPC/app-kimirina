@@ -1,0 +1,2 @@
+
+runtime: go113 # replace with go112 for Go 1.12
