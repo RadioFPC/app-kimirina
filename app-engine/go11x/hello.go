@@ -20,4 +20,11 @@ func main() {
 	r := gin.New()
 
 	// Define handlers
-	r.GET("/", func(c *gin.
+	r.GET("/", func(c *gin.Context) {
+		c.String(http.StatusOK, "Hello World!")
+	})
+	r.GET("/ping", func(c *gin.Context) {
+		c.String(http.StatusOK, "pong")
+	})
+
+	// Listen and serve
