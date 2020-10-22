@@ -27,4 +27,7 @@ func main() {
 		c.String(http.StatusOK, "pong")
 	})
 
-	// Listen and serve
+	// Listen and serve on defined port
+	log.Printf("Listening on port %s", port)
+	r.Run(":" + port)
+}
