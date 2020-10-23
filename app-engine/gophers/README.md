@@ -2,4 +2,6 @@
 
 1. Download, install and setup Go in your computer. (That includes setting your `$GOPATH`.)
 2. Download SDK for your platform from [here](https://cloud.google.com/appengine/docs/standard/go/download): `https://cloud.google.com/appengine/docs/standard/go/download`
-3. Download Gin source code using: `$ 
+3. Download Gin source code using: `$ go get github.com/gin-gonic/examples`
+4. Navigate to examples folder: `$ cd $GOPATH/src/github.com/gin-gonic/examples/app-engine/`
+5. Run it: `$ dev_appse
