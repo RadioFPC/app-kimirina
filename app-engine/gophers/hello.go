@@ -11,4 +11,9 @@ func init() {
 	// Starts a new Gin instance with no middle-ware
 	r := gin.New()
 
-	// Define
+	// Define your handlers
+	r.GET("/", func(c *gin.Context) {
+		c.String(http.StatusOK, "Hello World!")
+	})
+	r.GET("/ping", func(c *gin.Context) {
+		c.String(http.StatusO
