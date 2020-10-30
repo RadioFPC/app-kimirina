@@ -17,4 +17,17 @@ go get github.com/jessevdk/go-assets-builder
 ### Generate assets.go
 
 ```sh
-go-assets-builder
+go-assets-builder html -o assets.go
+```
+
+### Build the server
+
+```sh
+go build -o assets-in-binary
+```
+
+### Run
+
+```sh
+./assets-in-binary
+```
