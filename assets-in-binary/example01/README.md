@@ -5,4 +5,16 @@ This is a complete example to create a single binary with the
 
 [gin]: https://github.com/gin-gonic/gin
 
-## How to
+## How to use
+
+### Prepare Packages
+
+```sh
+go get github.com/gin-gonic/gin
+go get github.com/jessevdk/go-assets-builder
+```
+
+### Generate assets.go
+
+```sh
+go-assets-builder
