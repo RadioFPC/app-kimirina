@@ -9,4 +9,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func main
+func main() {
+	r := gin.New()
+	t, err := loadTemplate()
+	if err != nil {
+		panic(err)
+	}
+	r.SetHTMLTemplate(t)
+	r.GET("/", func(c *gin.Context) {
+		c.HTML(http.Statu
