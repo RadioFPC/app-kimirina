@@ -25,4 +25,11 @@ func main() {
 		c.HTML(http.StatusOK, "/html/bar.tmpl", gin.H{
 			"Bar": "World",
 		})
-	}
+	})
+	r.Run(":8080")
+}
+
+func loadTemplate() (*template.Template, error) {
+	t := template.New("")
+	for name, file := range Assets.Files {
+		if file.IsDir() || !strings.H
