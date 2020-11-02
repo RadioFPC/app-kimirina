@@ -17,4 +17,12 @@ func main() {
 	}
 	r.SetHTMLTemplate(t)
 	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.Statu
+		c.HTML(http.StatusOK, "/html/index.tmpl", gin.H{
+			"Foo": "World",
+		})
+	})
+	r.GET("/bar", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "/html/bar.tmpl", gin.H{
+			"Bar": "World",
+		})
+	}
