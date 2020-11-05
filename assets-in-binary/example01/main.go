@@ -41,4 +41,8 @@ func loadTemplate() (*template.Template, error) {
 		}
 		t, err = t.New(name).Parse(string(h))
 		if err != nil {
-			ret
+			return nil, err
+		}
+	}
+	return t, nil
+}
