@@ -14,4 +14,9 @@ var f embed.FS
 func main() {
 	router := gin.Default()
 	templ := template.Must(template.New("").ParseFS(f, "templates/*.tmpl", "templates/foo/*.tmpl"))
-	router
+	router.SetHTMLTemplate(templ)
+
+	// example: /public/assets/images/example.png
+	router.StaticFS("/public", http.FS(f))
+
+	router.GET("/", func(c *gin.Context) {
