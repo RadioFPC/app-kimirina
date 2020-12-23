@@ -20,3 +20,9 @@ func main() {
 	router.StaticFS("/public", http.FS(f))
 
 	router.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.tmpl", gin.H{
+			"title": "Main website",
+		})
+	})
+
+	router.GET("/foo", func(c *gin.Context)
