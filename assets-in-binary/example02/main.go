@@ -32,4 +32,13 @@ func main() {
 	})
 
 	router.GET("favicon.ico", func(c *gin.Context) {
-		file, _ := f.Re
+		file, _ := f.ReadFile("assets/favicon.ico")
+		c.Data(
+			http.StatusOK,
+			"image/x-icon",
+			file,
+		)
+	})
+
+	router.Run(":8080")
+}
