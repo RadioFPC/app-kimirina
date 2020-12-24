@@ -25,4 +25,11 @@ func main() {
 		})
 	})
 
-	router.GET("/foo", func(c *gin.Context)
+	router.GET("/foo", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "bar.tmpl", gin.H{
+			"title": "Foo website",
+		})
+	})
+
+	router.GET("favicon.ico", func(c *gin.Context) {
+		file, _ := f.Re
