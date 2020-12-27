@@ -8,4 +8,7 @@ require (
 )
 
 require (
-	github.c
+	github.com/gin-contrib/sse v0.1.0 // indirect
+	github.com/go-playground/locales v0.14.0 // indirect
+	github.com/go-playground/universal-translator v0.18.0 // indirect
+	githu
