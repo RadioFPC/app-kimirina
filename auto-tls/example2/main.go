@@ -12,4 +12,10 @@ func main() {
 	r := gin.Default()
 
 	// Ping handler
-	r.GET
+	r.GET("/ping", func(c *gin.Context) {
+		c.String(200, "pong")
+	})
+
+	m := autocert.Manager{
+		Prompt:     autocert.AcceptTOS,
+		HostPolicy: autocert.HostWhit
