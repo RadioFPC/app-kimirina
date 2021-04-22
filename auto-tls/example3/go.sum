@@ -5,4 +5,5 @@ github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/gin-contrib/sse v0.1.0 h1:Y/yl/+YNO8GZSjAhjMsSuLt29uWRFHdHYUb5lYOV9qE=
 github.com/gin-contrib/sse v0.1.0/go.mod h1:RHrZQHXnP2xjPF+u1gW/2HnVO7nvIa9PG3Gm+fLHvGI=
 github.com/gin-gonic/autotls v0.0.5 h1:SXQWwWGDJHujDlthIij1+jxn3m5IPV8I9Za9bcPzMdo=
-github.c
+github.com/gin-gonic/autotls v0.0.5/go.mod h1:RK6LjOz47xARPGuceCOz3pQcYruxM0bVB7jb4AsDYeI=
+github.com/gin-gonic/gin v1.8.1 h1:4+fr/el88TOO3ewCmQr8cx/CtZ/uml
