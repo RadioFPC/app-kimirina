@@ -23,4 +23,9 @@ func main() {
 	r := gin.Default()
 
 	// Ping handler
-	r.GET("/ping", f
+	r.GET("/ping", func(c *gin.Context) {
+		c.String(http.StatusOK, "pong")
+	})
+
+	log.Fatal(autotls.RunWithContext(ctx, r, "example1.com", "example2.com"))
+}
