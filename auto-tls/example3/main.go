@@ -13,4 +13,14 @@ import (
 
 func main() {
 	// Create context that listens for the interrupt signal from the OS.
-	ctx, stop := signal.NotifyCon
+	ctx, stop := signal.NotifyContext(
+		context.Background(),
+		syscall.SIGINT,
+		syscall.SIGTERM,
+	)
+	defer stop()
+
+	r := gin.Default()
+
+	// Ping handler
+	r.GET("/ping", f
