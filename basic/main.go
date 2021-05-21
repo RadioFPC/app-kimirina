@@ -20,3 +20,9 @@ func setupRouter() *gin.Engine {
 
 	// Get user value
 	r.GET("/user/:name", func(c *gin.Context) {
+		user := c.Params.ByName("name")
+		value, ok := db[user]
+		if ok {
+			c.JSON(http.StatusOK, gin.H{"user": user, "value": value})
+		} else {
+			c.JSON(http.Status
