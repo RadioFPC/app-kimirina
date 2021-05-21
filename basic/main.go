@@ -25,4 +25,10 @@ func setupRouter() *gin.Engine {
 		if ok {
 			c.JSON(http.StatusOK, gin.H{"user": user, "value": value})
 		} else {
-			c.JSON(http.Status
+			c.JSON(http.StatusOK, gin.H{"user": user, "status": "no value"})
+		}
+	})
+
+	// Authorized group (uses gin.BasicAuth() middleware)
+	// Same than:
+	// author
