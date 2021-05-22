@@ -41,4 +41,10 @@ func setupRouter() *gin.Engine {
 		"manu": "123", // user:manu password:123
 	}))
 
-	/* example curl for /admin with b
+	/* example curl for /admin with basicauth header
+	   Zm9vOmJhcg== is base64("foo:bar")
+
+		curl -X POST \
+	  	http://localhost:8080/admin \
+	  	-H 'authorization: Basic Zm9vOmJhcg==' \
+	  	-H '
