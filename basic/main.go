@@ -31,4 +31,9 @@ func setupRouter() *gin.Engine {
 
 	// Authorized group (uses gin.BasicAuth() middleware)
 	// Same than:
-	// author
+	// authorized := r.Group("/")
+	// authorized.Use(gin.BasicAuth(gin.Credentials{
+	//	  "foo":  "bar",
+	//	  "manu": "123",
+	//}))
+	authorized := r.Group
