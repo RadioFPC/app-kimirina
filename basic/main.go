@@ -60,4 +60,15 @@ func setupRouter() *gin.Engine {
 
 		if c.Bind(&json) == nil {
 			db[user] = json.Value
-			c.JSON(http.Statu
+			c.JSON(http.StatusOK, gin.H{"status": "ok"})
+		}
+	})
+
+	return r
+}
+
+func main() {
+	r := setupRouter()
+	// Listen and Server in 0.0.0.0:8080
+	r.Run(":8080")
+}
