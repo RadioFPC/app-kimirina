@@ -47,4 +47,10 @@ func setupRouter() *gin.Engine {
 		curl -X POST \
 	  	http://localhost:8080/admin \
 	  	-H 'authorization: Basic Zm9vOmJhcg==' \
-	  	-H '
+	  	-H 'content-type: application/json' \
+	  	-d '{"value":"bar"}'
+	*/
+	authorized.POST("admin", func(c *gin.Context) {
+		user := c.MustGet(gin.AuthUserKey).(string)
+
+		// 
