@@ -37,3 +37,4 @@ func main() {
 	})
 
 	route.Run(":8080")
+}
