@@ -9,4 +9,7 @@ require (
 	github.com/goccy/go-json v0.9.10 // indirect
 	github.com/google/go-cmp v0.5.6 // indirect
 	github.com/mattn/go-colorable v0.1.12 // indirect
-	git
+	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
+	github.com/pelletier/go-toml/v2 v2.0.2 // indirect
+	github.com/stretchr/testify v1.7.2
+	go.uber.
