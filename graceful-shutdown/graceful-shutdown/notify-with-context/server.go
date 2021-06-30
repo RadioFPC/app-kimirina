@@ -18,4 +18,10 @@ func main() {
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer stop()
 
-	router 
+	router := gin.Default()
+	router.GET("/", func(c *gin.Context) {
+		time.Sleep(10 * time.Second)
+		c.String(http.StatusOK, "Welcome Gin Server")
+	})
+
+	srv 
