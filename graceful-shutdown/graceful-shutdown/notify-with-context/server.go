@@ -24,4 +24,10 @@ func main() {
 		c.String(http.StatusOK, "Welcome Gin Server")
 	})
 
-	srv 
+	srv := &http.Server{
+		Addr:    ":8080",
+		Handler: router,
+	}
+
+	// Initializing the server in a goroutine so that
+	// it won't block the graceful shutdown handlin
