@@ -14,4 +14,8 @@ import (
 )
 
 func main() {
-	// Create cont
+	// Create context that listens for the interrupt signal from the OS.
+	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+	defer stop()
+
+	router 
