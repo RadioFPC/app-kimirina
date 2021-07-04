@@ -27,4 +27,7 @@ func main() {
 		Handler: router,
 	}
 
-	// Initi
+	// Initializing the server in a goroutine so that
+	// it won't block the graceful shutdown handling below
+	go func() {
+		if err := srv.ListenAndServe(); err != nil && err != http.
