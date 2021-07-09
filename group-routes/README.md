@@ -10,3 +10,5 @@ func getRoutes() {
 
 	v2 := router.Group("/v2")
 	addPingRoutes(v2)
+}
+```
