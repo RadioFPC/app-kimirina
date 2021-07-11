@@ -16,4 +16,6 @@ func addUserRoutes(rg *gin.RouterGroup) {
 		c.JSON(http.StatusOK, "users comments")
 	})
 	users.GET("/pictures", func(c *gin.Context) {
-		c.JSON(http.StatusOK, "users 
+		c.JSON(http.StatusOK, "users pictures")
+	})
+}
