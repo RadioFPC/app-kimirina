@@ -17,4 +17,12 @@ Update your `PATH` so that the `protoc` compiler can find the plugins:
 export PATH="$PATH:$(go env GOPATH)/bin"
 ```
 
-## Regenerate gRPC cod
+## Regenerate gRPC code
+
+```sh
+protoc --go_out=gen --go_opt=paths=source_relative \
+  --go-grpc_out=gen --go-grpc_opt=paths=source_relative \
+  -I=$PWD pb/helloworld.proto
+```
+
+## Runing
