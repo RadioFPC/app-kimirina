@@ -26,3 +26,19 @@ protoc --go_out=gen --go_opt=paths=source_relative \
 ```
 
 ## Runing
+
+First Step: run grpc server
+
+```sh
+go run grpc/server.go
+```
+
+Second Step: run gin server
+
+```sh
+go run gin/main.go
+```
+
+## Testing
+
+Send data to gin serve
