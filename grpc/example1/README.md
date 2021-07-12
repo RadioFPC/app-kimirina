@@ -50,4 +50,6 @@ curl -v 'http://localhost:8080/rest/n/gin'
 or using [grpcurl](https://github.com/fullstorydev/grpcurl) command:
 
 ```sh
-grpcurl -d '{"name": "
+grpcurl -d '{"name": "gin"}' \
+  -plaintext localhost:50051 helloworld.v1.Greeter/SayHello
+```
