@@ -41,4 +41,13 @@ go run gin/main.go
 
 ## Testing
 
-Send data to gin serve
+Send data to gin server:
+
+```sh
+curl -v 'http://localhost:8080/rest/n/gin'
+```
+
+or using [grpcurl](https://github.com/fullstorydev/grpcurl) command:
+
+```sh
+grpcurl -d '{"name": "
