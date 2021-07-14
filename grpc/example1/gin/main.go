@@ -17,4 +17,9 @@ func main() {
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
-	defer
+	defer conn.Close()
+	client := v1.NewGreeterClient(conn)
+
+	// Set up a http server.
+	r := gin.Default()
+	r.GET("/rest/n/:name", func(c *g
