@@ -35,4 +35,11 @@ func main() {
 			return
 		}
 
-		c.JSON(http.StatusOK
+		c.JSON(http.StatusOK, gin.H{
+			"result": fmt.Sprint(res.Message),
+		})
+	})
+
+	// Run http server
+	if err := r.Run(":8080"); err != nil {
+		log.Fatalf("could not run server: %v", err)
