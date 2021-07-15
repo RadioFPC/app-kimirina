@@ -43,3 +43,5 @@ func main() {
 	// Run http server
 	if err := r.Run(":8080"); err != nil {
 		log.Fatalf("could not run server: %v", err)
+	}
+}
