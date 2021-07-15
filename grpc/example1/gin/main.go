@@ -22,4 +22,9 @@ func main() {
 
 	// Set up a http server.
 	r := gin.Default()
-	r.GET("/rest/n/:name", func(c *g
+	r.GET("/rest/n/:name", func(c *gin.Context) {
+		name := c.Param("name")
+
+		// Contact the server and print out its response.
+		req := &v1.HelloRequest{Name: name}
+		res, err := client.Sa
