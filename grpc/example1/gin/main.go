@@ -27,4 +27,12 @@ func main() {
 
 		// Contact the server and print out its response.
 		req := &v1.HelloRequest{Name: name}
-		res, err := client.Sa
+		res, err := client.SayHello(c, req)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{
+				"error": err.Error(),
+			})
+			return
+		}
+
+		c.JSON(http.StatusOK
