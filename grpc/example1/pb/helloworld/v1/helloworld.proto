@@ -20,4 +20,6 @@ message HelloRequest {
 }
 
 // The response message containing the greetings
-message Hell
+message HelloReply {
+  string message = 1;
+}
