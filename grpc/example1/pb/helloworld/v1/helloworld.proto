@@ -6,4 +6,9 @@ option go_package = "gen/helloworld/v1";
 
 option java_multiple_files = true;
 option java_package = "io.grpc.examples.helloworld";
-o
+option java_outer_classname = "HelloWorldProto";
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {
