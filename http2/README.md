@@ -2,4 +2,13 @@
 
 1. Install Openssl
 
-Please visit htt
+Please visit https://github.com/openssl/openssl to get pkg and install.
+
+2. Generate RSA private key
+
+```sh
+$ mkdir testdata
+$ openssl genrsa -out ./testdata/server.key 2048
+```
+
+3. Generate 
