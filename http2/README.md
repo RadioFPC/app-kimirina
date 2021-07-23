@@ -11,4 +11,8 @@ $ mkdir testdata
 $ openssl genrsa -out ./testdata/server.key 2048
 ```
 
-3. Generate 
+3. Generate digital certificate
+
+```sh
+$ openssl req -new -x509 -key ./testdata/server.key -out ./testdata/server.pem -days 365
+```
