@@ -17,4 +17,12 @@ const (
 // NewRelicMonitoring is a middleware that starts a newrelic transaction, stores it in the context, then calls the next handler
 func NewRelicMonitoring(app newrelic.Application) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
-		txn := app.StartTransaction(ct
+		txn := app.StartTransaction(ctx.Request.URL.Path, ctx.Writer, ctx.Request)
+		defer txn.End()
+		ctx.Set(NewRelicTxnKey, txn)
+		ctx.Next()
+	}
+}
+
+func main() {
+	router := gin.Defa
