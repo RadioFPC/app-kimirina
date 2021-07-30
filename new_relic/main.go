@@ -14,4 +14,7 @@ const (
 	NewRelicTxnKey = "NewRelicTxnKey"
 )
 
-// NewRelicMonitoring is a middleware that starts a newrelic transaction, stores it in the context, then calls the next handl
+// NewRelicMonitoring is a middleware that starts a newrelic transaction, stores it in the context, then calls the next handler
+func NewRelicMonitoring(app newrelic.Application) gin.HandlerFunc {
+	return func(ctx *gin.Context) {
+		txn := app.StartTransaction(ct
