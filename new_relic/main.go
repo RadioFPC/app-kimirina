@@ -30,4 +30,12 @@ func main() {
 	cfg := newrelic.NewConfig(os.Getenv("APP_NAME"), os.Getenv("NEW_RELIC_API_KEY"))
 	app, err := newrelic.NewApplication(cfg)
 	if err != nil {
-		log.Printf("failed to ma
+		log.Printf("failed to make new_relic app: %v", err)
+	} else {
+		router.Use(NewRelicMonitoring(app))
+	}
+
+	router.GET("/", func(c *gin.Context) {
+		c.String(http.StatusOK, "Hello World!\n")
+	})
+	rout
