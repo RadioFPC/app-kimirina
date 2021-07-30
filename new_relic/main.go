@@ -25,4 +25,9 @@ func NewRelicMonitoring(app newrelic.Application) gin.HandlerFunc {
 }
 
 func main() {
-	router := gin.Defa
+	router := gin.Default()
+
+	cfg := newrelic.NewConfig(os.Getenv("APP_NAME"), os.Getenv("NEW_RELIC_API_KEY"))
+	app, err := newrelic.NewApplication(cfg)
+	if err != nil {
+		log.Printf("failed to ma
