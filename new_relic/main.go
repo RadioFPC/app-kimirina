@@ -38,4 +38,5 @@ func main() {
 	router.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "Hello World!\n")
 	})
-	rout
+	router.Run()
+}
