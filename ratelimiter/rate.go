@@ -25,4 +25,15 @@ func leakBucket() gin.HandlerFunc {
 	prev := time.Now()
 	return func(ctx *gin.Context) {
 		now := limit.Take()
-		log.Print(color.CyanString("%v", now.S
+		log.Print(color.CyanString("%v", now.Sub(prev)))
+		prev = now
+	}
+}
+
+func ginRun(rps int) {
+	limit = ratelimit.New(rps)
+
+	app := gin.Default()
+	app.Use(leakBucket())
+
+	app.GET("/rate", func(ctx *g
