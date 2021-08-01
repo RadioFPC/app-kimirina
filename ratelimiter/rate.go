@@ -18,4 +18,11 @@ var (
 func init() {
 	log.SetFlags(0)
 	log.SetPrefix("[GIN] ")
-	log.SetOutput(
+	log.SetOutput(gin.DefaultWriter)
+}
+
+func leakBucket() gin.HandlerFunc {
+	prev := time.Now()
+	return func(ctx *gin.Context) {
+		now := limit.Take()
+		log.Print(color.CyanString("%v", now.S
