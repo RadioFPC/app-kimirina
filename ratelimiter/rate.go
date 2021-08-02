@@ -36,4 +36,12 @@ func ginRun(rps int) {
 	app := gin.Default()
 	app.Use(leakBucket())
 
-	app.GET("/rate", func(ctx *g
+	app.GET("/rate", func(ctx *gin.Context) {
+		ctx.JSON(200, "rate limiting test")
+	})
+
+	log.Printf(color.CyanString("Current Rate Limit: %v requests/s", rps))
+	app.Run(":8080")
+}
+
+func mai
