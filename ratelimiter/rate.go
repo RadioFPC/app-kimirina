@@ -44,4 +44,7 @@ func ginRun(rps int) {
 	app.Run(":8080")
 }
 
-func mai
+func main() {
+	flag.Parse()
+	ginRun(*rps)
+}
