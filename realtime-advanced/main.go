@@ -8,4 +8,11 @@ import (
 )
 
 func main() {
-	ConfigRunti
+	ConfigRuntime()
+	StartWorkers()
+	StartGin()
+}
+
+// ConfigRuntime sets the number of operating system threads.
+func ConfigRuntime() {
+	nuCPU := runt
