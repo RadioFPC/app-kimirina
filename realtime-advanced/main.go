@@ -15,4 +15,11 @@ func main() {
 
 // ConfigRuntime sets the number of operating system threads.
 func ConfigRuntime() {
-	nuCPU := runt
+	nuCPU := runtime.NumCPU()
+	runtime.GOMAXPROCS(nuCPU)
+	fmt.Printf("Running with %d CPUs\n", nuCPU)
+}
+
+// StartWorkers start starsWorker by goroutine.
+func StartWorkers() {
+	go statsW
