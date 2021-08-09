@@ -22,4 +22,12 @@ func ConfigRuntime() {
 
 // StartWorkers start starsWorker by goroutine.
 func StartWorkers() {
-	go statsW
+	go statsWorker()
+}
+
+// StartGin starts gin web server with setting router.
+func StartGin() {
+	gin.SetMode(gin.ReleaseMode)
+
+	router := gin.New()
+	router.Use(rateLimit,
