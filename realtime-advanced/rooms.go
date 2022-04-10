@@ -10,4 +10,10 @@ func openListener(roomid string) chan interface{} {
 	return listener
 }
 
-fun
+func closeListener(roomid string, listener chan interface{}) {
+	room(roomid).Unregister(listener)
+	close(listener)
+}
+
+func room(roomid string) broadcast.Broadcaster {
+	b, ok := 
