@@ -16,4 +16,10 @@ func closeListener(roomid string, listener chan interface{}) {
 }
 
 func room(roomid string) broadcast.Broadcaster {
-	b, ok := 
+	b, ok := roomChannels[roomid]
+	if !ok {
+		b = broadcast.NewBroadcaster(10)
+		roomChannels[roomid] = b
+	}
+	return b
+}
