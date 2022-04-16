@@ -22,4 +22,12 @@ func rateLimit(c *gin.Context) {
 			fmt.Println("ip blocked")
 		}
 		c.Abort()
-		c.String(http.StatusS
+		c.String(http.StatusServiceUnavailable, "you were automatically banned :)")
+	}
+}
+
+func index(c *gin.Context) {
+	c.Redirect(http.StatusMovedPermanently, "/room/hn")
+}
+
+func ro
