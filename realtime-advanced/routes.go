@@ -30,4 +30,12 @@ func index(c *gin.Context) {
 	c.Redirect(http.StatusMovedPermanently, "/room/hn")
 }
 
-func ro
+func roomGET(c *gin.Context) {
+	roomid := c.Param("roomid")
+	nick := c.Query("nick")
+	if len(nick) < 2 {
+		nick = ""
+	}
+	if len(nick) > 13 {
+		nick = nick[0:12] + "..."
+	
