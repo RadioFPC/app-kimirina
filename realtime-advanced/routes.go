@@ -46,4 +46,10 @@ func roomGET(c *gin.Context) {
 	})
 }
 
-func 
+func roomPOST(c *gin.Context) {
+	roomid := c.Param("roomid")
+	nick := c.Query("nick")
+	message := c.PostForm("message")
+	message = strings.TrimSpace(message)
+
+	validMessage 
