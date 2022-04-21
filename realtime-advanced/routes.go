@@ -52,4 +52,7 @@ func roomPOST(c *gin.Context) {
 	message := c.PostForm("message")
 	message = strings.TrimSpace(message)
 
-	validMessage 
+	validMessage := len(message) > 1 && len(message) < 200
+	validNick := len(nick) > 1 && len(nick) < 14
+	if !validMessage || !validNick {
+		c.JSON(http.
