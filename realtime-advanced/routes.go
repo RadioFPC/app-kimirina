@@ -63,4 +63,12 @@ func roomPOST(c *gin.Context) {
 	}
 
 	post := gin.H{
-		"nick":    html.Esc
+		"nick":    html.EscapeString(nick),
+		"message": html.EscapeString(message),
+	}
+	messages.Add("inbound", 1)
+	room(roomid).Submit(post)
+	c.JSON(http.StatusOK, post)
+}
+
+func st
