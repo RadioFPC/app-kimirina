@@ -55,4 +55,12 @@ func roomPOST(c *gin.Context) {
 	validMessage := len(message) > 1 && len(message) < 200
 	validNick := len(nick) > 1 && len(nick) < 14
 	if !validMessage || !validNick {
-		c.JSON(http.
+		c.JSON(http.StatusBadRequest, gin.H{
+			"status": "failed",
+			"error":  "the message or nickname is too long",
+		})
+		return
+	}
+
+	post := gin.H{
+		"nick":    html.Esc
