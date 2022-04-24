@@ -71,4 +71,9 @@ func roomPOST(c *gin.Context) {
 	c.JSON(http.StatusOK, post)
 }
 
-func st
+func streamRoom(c *gin.Context) {
+	roomid := c.Param("roomid")
+	listener := openListener(roomid)
+	ticker := time.NewTicker(1 * time.Second)
+	users.Add("connected", 1)
+	defer 
