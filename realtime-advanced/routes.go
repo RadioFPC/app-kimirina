@@ -76,4 +76,11 @@ func streamRoom(c *gin.Context) {
 	listener := openListener(roomid)
 	ticker := time.NewTicker(1 * time.Second)
 	users.Add("connected", 1)
-	defer 
+	defer func() {
+		closeListener(roomid, listener)
+		ticker.Stop()
+		users.Add("disconnected", 1)
+	}()
+
+	c.Stream(func(w io.Writer) bool {
+		s
