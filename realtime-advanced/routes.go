@@ -83,4 +83,11 @@ func streamRoom(c *gin.Context) {
 	}()
 
 	c.Stream(func(w io.Writer) bool {
-		s
+		select {
+		case msg := <-listener:
+			messages.Add("outbound", 1)
+			c.SSEvent("message", msg)
+		case <-ticker.C:
+			c.SSEvent("stats", Stats())
+		}
+		retur
