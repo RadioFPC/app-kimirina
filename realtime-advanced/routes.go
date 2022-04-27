@@ -90,4 +90,6 @@ func streamRoom(c *gin.Context) {
 		case <-ticker.C:
 			c.SSEvent("stats", Stats())
 		}
-		retur
+		return true
+	})
+}
