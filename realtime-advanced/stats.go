@@ -10,4 +10,11 @@ import (
 
 var (
 	ips        = stats.New()
-	messag
+	messages   = stats.New()
+	users      = stats.New()
+	mutexStats sync.RWMutex
+	savedStats map[string]uint64
+)
+
+func statsWorker() {
+	c := time.Tick(1 * time
