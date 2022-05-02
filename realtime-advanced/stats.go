@@ -17,4 +17,11 @@ var (
 )
 
 func statsWorker() {
-	c := time.Tick(1 * time
+	c := time.Tick(1 * time.Second)
+	var lastMallocs uint64
+	var lastFrees uint64
+	for range c {
+		var stats runtime.MemStats
+		runtime.ReadMemStats(&stats)
+
+		mutexStats.Lock
