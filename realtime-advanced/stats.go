@@ -24,4 +24,8 @@ func statsWorker() {
 		var stats runtime.MemStats
 		runtime.ReadMemStats(&stats)
 
-		mutexStats.Lock
+		mutexStats.Lock()
+		savedStats = map[string]uint64{
+			"timestamp":  uint64(time.Now().Unix()),
+			"HeapInuse":  stats.HeapInuse,
+			"StackInuse": stats.Stac
