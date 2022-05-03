@@ -28,4 +28,8 @@ func statsWorker() {
 		savedStats = map[string]uint64{
 			"timestamp":  uint64(time.Now().Unix()),
 			"HeapInuse":  stats.HeapInuse,
-			"StackInuse": stats.Stac
+			"StackInuse": stats.StackInuse,
+			"Mallocs":    stats.Mallocs - lastMallocs,
+			"Frees":      stats.Frees - lastFrees,
+			"Inbound":    uint64(messages.Get("inbound")),
+			"Outbound":  
