@@ -37,4 +37,11 @@ func statsWorker() {
 		}
 		lastMallocs = stats.Mallocs
 		lastFrees = stats.Frees
-		messages.
+		messages.Reset()
+		mutexStats.Unlock()
+	}
+}
+
+func connectedUsers() uint64 {
+	connected := users.Get("connected") - users.Get("disconnected")
+	if conn
