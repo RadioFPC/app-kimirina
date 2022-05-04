@@ -32,4 +32,9 @@ func statsWorker() {
 			"Mallocs":    stats.Mallocs - lastMallocs,
 			"Frees":      stats.Frees - lastFrees,
 			"Inbound":    uint64(messages.Get("inbound")),
-			"Outbound":  
+			"Outbound":   uint64(messages.Get("outbound")),
+			"Connected":  connectedUsers(),
+		}
+		lastMallocs = stats.Mallocs
+		lastFrees = stats.Frees
+		messages.
