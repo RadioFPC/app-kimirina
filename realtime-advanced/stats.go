@@ -44,4 +44,13 @@ func statsWorker() {
 
 func connectedUsers() uint64 {
 	connected := users.Get("connected") - users.Get("disconnected")
-	if conn
+	if connected < 0 {
+		return 0
+	}
+	return uint64(connected)
+}
+
+// Stats returns savedStats data.
+func Stats() map[string]uint64 {
+	mutexStats.RLock()
+	defer mute
