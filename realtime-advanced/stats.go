@@ -53,4 +53,7 @@ func connectedUsers() uint64 {
 // Stats returns savedStats data.
 func Stats() map[string]uint64 {
 	mutexStats.RLock()
-	defer mute
+	defer mutexStats.RUnlock()
+
+	return savedStats
+}
