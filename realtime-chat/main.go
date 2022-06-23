@@ -12,4 +12,10 @@ import (
 var roomManager *Manager
 
 func main() {
-	roomManag
+	roomManager = NewRoomManager()
+	router := gin.Default()
+	router.SetHTMLTemplate(html)
+
+	router.GET("/room/:roomid", roomGET)
+	router.POST("/room/:roomid", roomPOST)
+	router.DELETE("/r
