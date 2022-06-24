@@ -26,4 +26,9 @@ func main() {
 
 func stream(c *gin.Context) {
 	roomid := c.Param("roomid")
-	listene
+	listener := roomManager.OpenListener(roomid)
+	defer roomManager.CloseListener(roomid, listener)
+
+	clientGone := c.Request.Context().Done()
+	c.Stream(func(w io.Writer) bool {
+		sele
