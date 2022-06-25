@@ -31,4 +31,13 @@ func stream(c *gin.Context) {
 
 	clientGone := c.Request.Context().Done()
 	c.Stream(func(w io.Writer) bool {
-		sele
+		select {
+		case <-clientGone:
+			return false
+		case message := <-listener:
+			c.SSEvent("message", message)
+			return true
+		}
+	})
+}
+
