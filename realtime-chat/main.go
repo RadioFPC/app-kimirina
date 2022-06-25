@@ -41,3 +41,8 @@ func stream(c *gin.Context) {
 	})
 }
 
+func roomGET(c *gin.Context) {
+	roomid := c.Param("roomid")
+	userid := fmt.Sprint(rand.Int31())
+	c.HTML(http.StatusOK, "chat_room", gin.H{
+		"roomid": roomid,
