@@ -46,3 +46,12 @@ func roomGET(c *gin.Context) {
 	userid := fmt.Sprint(rand.Int31())
 	c.HTML(http.StatusOK, "chat_room", gin.H{
 		"roomid": roomid,
+		"userid": userid,
+	})
+}
+
+func roomPOST(c *gin.Context) {
+	roomid := c.Param("roomid")
+	userid := c.PostForm("user")
+	message := c.PostForm("message")
+	roomManager.S
