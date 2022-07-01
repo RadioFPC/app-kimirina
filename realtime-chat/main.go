@@ -54,4 +54,12 @@ func roomPOST(c *gin.Context) {
 	roomid := c.Param("roomid")
 	userid := c.PostForm("user")
 	message := c.PostForm("message")
-	roomManager.S
+	roomManager.Submit(userid, roomid, message)
+
+	c.JSON(http.StatusOK, gin.H{
+		"status":  "success",
+		"message": message,
+	})
+}
+
+func roomDELETE(c *gin.Context
