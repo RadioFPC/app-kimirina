@@ -62,4 +62,7 @@ func roomPOST(c *gin.Context) {
 	})
 }
 
-func roomDELETE(c *gin.Context
+func roomDELETE(c *gin.Context) {
+	roomid := c.Param("roomid")
+	roomManager.DeleteBroadcast(roomid)
+}
