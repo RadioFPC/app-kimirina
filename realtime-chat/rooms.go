@@ -70,3 +70,39 @@ func (m *Manager) deleteBroadcast(roomid string) {
 }
 
 func (m *Manager) room(roomid string) broadcast.Broadcaster {
+	b, ok := m.roomChannels[roomid]
+	if !ok {
+		b = broadcast.NewBroadcaster(10)
+		m.roomChannels[roomid] = b
+	}
+	return b
+}
+
+func (m *Manager) OpenListener(roomid string) chan interface{} {
+	listener := make(chan interface{})
+	m.open <- &Listener{
+		RoomId: roomid,
+		Chan:   listener,
+	}
+	return listener
+}
+
+func (m *Manager) CloseListener(roomid string, channel chan interface{}) {
+	m.close <- &Listener{
+		RoomId: roomid,
+		Chan:   channel,
+	}
+}
+
+func (m *Manager) DeleteBroadcast(roomid string) {
+	m.delete <- roomid
+}
+
+func (m *Manager) Submit(userid, roomid, text string) {
+	msg := &Message{
+		UserId: userid,
+		RoomId: roomid,
+		Text:   text,
+	}
+	m.messages <- msg
+}
