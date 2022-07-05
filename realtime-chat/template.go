@@ -11,3 +11,7 @@ var html = template.Must(template.New("chat_room").Parse(`
     <script src="http://malsup.github.com/jquery.form.js"></script> 
     <script> 
         $('#message_form').focus();
+        $(document).ready(function() { 
+            // bind 'myForm' and provide a simple callback function 
+            $('#myForm').ajaxForm(function() {
+           
