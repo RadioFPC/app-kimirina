@@ -14,4 +14,9 @@ var html = template.Must(template.New("chat_room").Parse(`
         $(document).ready(function() { 
             // bind 'myForm' and provide a simple callback function 
             $('#myForm').ajaxForm(function() {
-           
+                $('#message_form').val('');
+                $('#message_form').focus();
+            });
+
+            if (!!window.EventSource) {
+                var source = 
