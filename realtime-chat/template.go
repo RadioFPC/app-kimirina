@@ -19,4 +19,6 @@ var html = template.Must(template.New("chat_room").Parse(`
             });
 
             if (!!window.EventSource) {
-                var source = 
+                var source = new EventSource('/stream/{{.roomid}}');
+                source.addEventListener('message', function(e) {
+                    $('#messages').append(e.dat
