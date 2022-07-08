@@ -25,4 +25,12 @@ var html = template.Must(template.New("chat_room").Parse(`
                     $('html, body').animate({scrollTop:$(document).height()}, 'slow');
 
                 }, false);
-            } else 
+            } else {
+                alert("NOT SUPPORTED");
+            }
+        });
+    </script> 
+    </head>
+    <body>
+    <h1>Welcome to {{.roomid}} room</h1>
+    <div id="messages
