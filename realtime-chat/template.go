@@ -36,4 +36,9 @@ var html = template.Must(template.New("chat_room").Parse(`
     <div id="messages"></div>
     <form id="myForm" action="/room/{{.roomid}}" method="post"> 
     User: <input id="user_form" name="user" value="{{.userid}}">
-    Message: <input id="mes
+    Message: <input id="message_form" name="message">
+    <input type="submit" value="Submit"> 
+    </form>
+</body>
+</html>
+`))
