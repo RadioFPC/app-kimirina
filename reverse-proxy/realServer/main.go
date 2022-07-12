@@ -17,4 +17,5 @@ func main() {
 		// in this handler, we just simply send some basic info back to proxy response.
 		req := c.Request
 		urlPath := fmt.Sprintf("http://%s%s", Addr, req.URL.Path)
-		
+		realIP := fmt.Sprintf("RemoteAddr=%s,X-Forwarded-For=%v,X-Real-Ip=%v", req.RemoteAddr, req.Header.Get("X-Forwarded-For"), req.Header.Get("X-Real-Ip"))
+		c
