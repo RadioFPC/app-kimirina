@@ -14,4 +14,7 @@ const (
 func main() {
 	r := gin.Default()
 	r.GET("/:path", func(c *gin.Context) {
-		// in th
+		// in this handler, we just simply send some basic info back to proxy response.
+		req := c.Request
+		urlPath := fmt.Sprintf("http://%s%s", Addr, req.URL.Path)
+		
