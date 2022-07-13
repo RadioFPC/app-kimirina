@@ -18,4 +18,13 @@ func main() {
 		req := c.Request
 		urlPath := fmt.Sprintf("http://%s%s", Addr, req.URL.Path)
 		realIP := fmt.Sprintf("RemoteAddr=%s,X-Forwarded-For=%v,X-Real-Ip=%v", req.RemoteAddr, req.Header.Get("X-Forwarded-For"), req.Header.Get("X-Real-Ip"))
-		c
+		c.JSON(200, gin.H{
+			"path": urlPath,
+			"ip":   realIP,
+		})
+	})
+
+	if err := r.Run(Addr); err != nil {
+		log.Printf("Error: %v", err)
+	}
+}
