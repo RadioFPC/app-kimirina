@@ -15,4 +15,11 @@ func main() {
 	r.GET("/test_stream", func(c *gin.Context) {
 		w := c.Writer
 		header := w.Header()
-		header.Set("Transfer-En
+		header.Set("Transfer-Encoding", "chunked")
+		header.Set("Content-Type", "text/html")
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(`
+			<html>
+					<body>
+		`))
+		w.(http.Flusher).
