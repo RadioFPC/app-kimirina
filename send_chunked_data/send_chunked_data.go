@@ -22,4 +22,10 @@ func main() {
 			<html>
 					<body>
 		`))
-		w.(http.Flusher).
+		w.(http.Flusher).Flush()
+		for i := 0; i < 10; i++ {
+			w.Write([]byte(fmt.Sprintf(`
+				<h1>%d</h1>
+			`, i)))
+			w.(http.Flusher).Flush()
+			time.Sleep(time.Duration(1) 
