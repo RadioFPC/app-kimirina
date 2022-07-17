@@ -28,4 +28,19 @@ func main() {
 				<h1>%d</h1>
 			`, i)))
 			w.(http.Flusher).Flush()
-			time.Sleep(time.Duration(1) 
+			time.Sleep(time.Duration(1) * time.Second)
+		}
+		w.Write([]byte(`
+			
+					</body>
+			</html>
+		`))
+		w.(http.Flusher).Flush()
+	})
+
+	r.Run("127.0.0.1:8080")
+}
+
+/*
+browser test url:
+http://
