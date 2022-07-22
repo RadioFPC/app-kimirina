@@ -10,4 +10,9 @@ import (
 
 // User contains user information.
 type User struct {
-	FirstN
+	FirstName string `json:"fname"`
+	LastName  string `json:"lname"`
+	Email     string `binding:"required,email"`
+}
+
+// UserStructLevelValidation contains custom struct level va
