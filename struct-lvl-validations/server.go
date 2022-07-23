@@ -15,4 +15,6 @@ type User struct {
 	Email     string `binding:"required,email"`
 }
 
-// UserStructLevelValidation contains custom struct level va
+// UserStructLevelValidation contains custom struct level validations that don't always
+// make sense at the field validation level. For example, this function validates that either
+// FirstName or Las
