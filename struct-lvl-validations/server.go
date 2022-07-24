@@ -18,4 +18,8 @@ type User struct {
 // UserStructLevelValidation contains custom struct level validations that don't always
 // make sense at the field validation level. For example, this function validates that either
 // FirstName or LastName exist; could have done that with a custom field validation but then
-// would have had to add it to both fields duplicating the logic + overhead, this way it
+// would have had to add it to both fields duplicating the logic + overhead, this way it's
+// only validated once.
+//
+// NOTE: you may ask why wouldn't not just do this outside of validator. Doing this way
+// hooks right into validator and you ca
