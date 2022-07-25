@@ -22,4 +22,6 @@ type User struct {
 // only validated once.
 //
 // NOTE: you may ask why wouldn't not just do this outside of validator. Doing this way
-// hooks right into validator and you ca
+// hooks right into validator and you can combine with validation tags and still have a
+// common error output format.
+func UserStructLevelValidation(sl validator.Struct
