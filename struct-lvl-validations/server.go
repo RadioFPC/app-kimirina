@@ -28,4 +28,6 @@ func UserStructLevelValidation(sl validator.StructLevel) {
 	// user := structLevel.CurrentStruct.Interface().(User)
 	user := sl.Current().Interface().(User)
 
-	if len(user.FirstName) == 0 && len(user.LastName) =
+	if len(user.FirstName) == 0 && len(user.LastName) == 0 {
+		sl.ReportError(user.FirstName, "FirstName", "fname", "fnameorlname", "")
+		sl.ReportError(user.LastName, "LastName", "lname", "fnameorlname", "")
