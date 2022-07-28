@@ -39,4 +39,10 @@ func UserStructLevelValidation(sl validator.StructLevel) {
 func main() {
 	route := gin.Default()
 
-	if v, ok := binding.Validator.Engine().(*vali
+	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
+		v.RegisterStructValidation(UserStructLevelValidation, User{})
+	}
+
+	route.POST("/user", validateUser)
+	route.Run(":8085")
+}
