@@ -31,3 +31,12 @@ func UserStructLevelValidation(sl validator.StructLevel) {
 	if len(user.FirstName) == 0 && len(user.LastName) == 0 {
 		sl.ReportError(user.FirstName, "FirstName", "fname", "fnameorlname", "")
 		sl.ReportError(user.LastName, "LastName", "lname", "fnameorlname", "")
+	}
+
+	// plus can to more, even with different tag than "fnameorlname"
+}
+
+func main() {
+	route := gin.Default()
+
+	if v, ok := binding.Validator.Engine().(*vali
