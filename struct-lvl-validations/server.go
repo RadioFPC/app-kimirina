@@ -46,3 +46,8 @@ func main() {
 	route.POST("/user", validateUser)
 	route.Run(":8085")
 }
+
+func validateUser(c *gin.Context) {
+	var u User
+	if err := c.ShouldBindJSON(&u); err == nil {
+		c.JSON(http.StatusOK, gin.H{"message": "User validation succ
