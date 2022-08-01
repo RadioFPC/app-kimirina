@@ -50,4 +50,11 @@ func main() {
 func validateUser(c *gin.Context) {
 	var u User
 	if err := c.ShouldBindJSON(&u); err == nil {
-		c.JSON(http.StatusOK, gin.H{"message": "User validation succ
+		c.JSON(http.StatusOK, gin.H{"message": "User validation successful."})
+	} else {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"message": "User validation failed!",
+			"error":   err.Error(),
+		})
+	}
+}
