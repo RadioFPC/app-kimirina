@@ -18,4 +18,9 @@ func main() {
 	router := gin.Default()
 	router.Delims("{[{", "}]}")
 	router.SetFuncMap(template.FuncMap{
-		"formatAsDat
+		"formatAsDate": formatAsDate,
+	})
+	router.LoadHTMLFiles("./testdata/raw.tmpl")
+
+	router.GET("/raw", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "raw.tmpl
