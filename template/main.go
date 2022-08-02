@@ -11,4 +11,11 @@ import (
 
 func formatAsDate(t time.Time) string {
 	year, month, day := t.Date()
-	return fmt.Spr
+	return fmt.Sprintf("%d%02d/%02d", year, month, day)
+}
+
+func main() {
+	router := gin.Default()
+	router.Delims("{[{", "}]}")
+	router.SetFuncMap(template.FuncMap{
+		"formatAsDat
