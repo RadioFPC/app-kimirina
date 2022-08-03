@@ -23,4 +23,10 @@ func main() {
 	router.LoadHTMLFiles("./testdata/raw.tmpl")
 
 	router.GET("/raw", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "raw.tmpl
+		c.HTML(http.StatusOK, "raw.tmpl", gin.H{
+			"now": time.Date(2017, 0o7, 0o1, 0, 0, 0, 0, time.UTC),
+		})
+	})
+
+	router.Run(":8080")
+}
