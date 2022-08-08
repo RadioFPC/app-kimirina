@@ -16,4 +16,8 @@ func main() {
 		name := c.PostForm("name")
 		email := c.PostForm("email")
 
-		// Mul
+		// Multipart form
+		form, err := c.MultipartForm()
+		if err != nil {
+			c.String(http.StatusBadRequest, "get form err: %s", err.Error())
+			return
