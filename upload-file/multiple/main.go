@@ -26,4 +26,10 @@ func main() {
 
 		for _, file := range files {
 			filename := filepath.Base(file.Filename)
-			if err := c.SaveUploadedFile(file, filena
+			if err := c.SaveUploadedFile(file, filename); err != nil {
+				c.String(http.StatusBadRequest, "upload file err: %s", err.Error())
+				return
+			}
+		}
+
+		c.String(http.StatusOK, "Upload
