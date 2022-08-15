@@ -13,4 +13,10 @@ func main() {
 	router.MaxMultipartMemory = 8 << 20 // 8 MiB
 	router.Static("/", "./public")
 	router.POST("/upload", func(c *gin.Context) {
-		
+		name := c.PostForm("name")
+		email := c.PostForm("email")
+
+		// Source
+		file, err := c.FormFile("file")
+		if err != nil {
+			c.String(http.StatusBadRequest, "g
