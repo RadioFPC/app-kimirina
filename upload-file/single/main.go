@@ -19,4 +19,10 @@ func main() {
 		// Source
 		file, err := c.FormFile("file")
 		if err != nil {
-			c.String(http.StatusBadRequest, "g
+			c.String(http.StatusBadRequest, "get form err: %s", err.Error())
+			return
+		}
+
+		filename := filepath.Base(file.Filename)
+		if err := c.SaveUploadedFile(file, filename); err != nil {
+	
