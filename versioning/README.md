@@ -8,4 +8,4 @@ This is Endpoint versioning (i.e `/v1/path`) example using custom middleware gro
 
 2) Test APIs On ` http://localhost:8080 `. 
 
-- For list users in v1, path should be `http://localhost:8080/v1/users`. 
+- For list users in v1, path should be `http://localhost:8080/v1/users`. Likewise, all other routes are working.
