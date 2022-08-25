@@ -16,4 +16,12 @@ func main() {
 		c.JSON(http.StatusOK, "List Of V1 Users")
 	})
 
-	// User only can be added by authoriz
+	// User only can be added by authorized person
+	authV1 := apiV1.Group("/", AuthMiddleWare())
+
+	authV1.POST("users/add", AddV1User)
+
+	// version 2
+	apiV2 := router.Group("/v2")
+
+	apiV2.GET("use
