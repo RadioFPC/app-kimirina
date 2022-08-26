@@ -24,4 +24,9 @@ func main() {
 	// version 2
 	apiV2 := router.Group("/v2")
 
-	apiV2.GET("use
+	apiV2.GET("users", func(c *gin.Context) {
+		c.JSON(http.StatusOK, "List Of V2 Users")
+	})
+
+	// User only can be added by authorized person
+	authV2 := apiV2.Group("/", AuthMiddleWare())
