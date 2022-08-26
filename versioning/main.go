@@ -30,3 +30,16 @@ func main() {
 
 	// User only can be added by authorized person
 	authV2 := apiV2.Group("/", AuthMiddleWare())
+
+	authV2.POST("users/add", AddV2User)
+
+	_ = router.Run(":8081")
+}
+
+func AddV1User(c *gin.Context) {
+	// AddUser
+
+	c.JSON(http.StatusOK, "V1 User added")
+}
+
+func 
