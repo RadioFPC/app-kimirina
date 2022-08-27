@@ -50,4 +50,8 @@ func AddV2User(c *gin.Context) {
 
 func AuthMiddleWare() gin.HandlerFunc {
 	return func(c *gin.Context) {
-	
+		// here you can add your authentication method to authorize users.
+		username := c.PostForm("user")
+		password := c.PostForm("password")
+
+		if username == "foo
