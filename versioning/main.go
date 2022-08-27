@@ -42,4 +42,12 @@ func AddV1User(c *gin.Context) {
 	c.JSON(http.StatusOK, "V1 User added")
 }
 
-func 
+func AddV2User(c *gin.Context) {
+	// AddUser
+
+	c.JSON(http.StatusOK, "V2 User added")
+}
+
+func AuthMiddleWare() gin.HandlerFunc {
+	return func(c *gin.Context) {
+	
