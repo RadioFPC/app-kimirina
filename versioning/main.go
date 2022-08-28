@@ -54,4 +54,10 @@ func AuthMiddleWare() gin.HandlerFunc {
 		username := c.PostForm("user")
 		password := c.PostForm("password")
 
-		if username == "foo
+		if username == "foo" && password == "bar" {
+			return
+		} else {
+			c.AbortWithStatus(http.StatusUnauthorized)
+		}
+	}
+}
