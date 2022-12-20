@@ -27,4 +27,14 @@ func echo(ctx *gin.Context) {
 			log.Println("read:", err)
 			break
 		}
-		log.Printf("recv:%s",
+		log.Printf("recv:%s", message)
+		err = c.WriteMessage(mt, message)
+		if err != nil {
+			log.Println("write:", err)
+			break
+		}
+	}
+}
+
+func home(c *gin.Context) {
+	homeT
