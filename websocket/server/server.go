@@ -37,4 +37,12 @@ func echo(ctx *gin.Context) {
 }
 
 func home(c *gin.Context) {
-	homeT
+	homeTemplate.Execute(c.Writer, "ws://"+c.Request.Host+"/echo")
+}
+
+func main() {
+	flag.Parse()
+	log.SetFlags(0)
+	r := gin.Default()
+	r.GET("/echo", echo)
+	r.GET("/"
