@@ -45,4 +45,15 @@ func main() {
 	log.SetFlags(0)
 	r := gin.Default()
 	r.GET("/echo", echo)
-	r.GET("/"
+	r.GET("/", home)
+	log.Fatal(r.Run(*addr))
+}
+
+
+var homeTemplate = template.Must(template.New("").Parse(`
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>  
+windo
