@@ -60,4 +60,8 @@ window.addEventListener("load", function(evt) {
     var output = document.getElementById("output");
     var input = document.getElementById("input");
     var ws;
-  
+    var print = function(message) {
+        var d = document.createElement("div");
+        d.textContent = message;
+        output.appendChild(d);
+        output.scroll(0, output.sc
