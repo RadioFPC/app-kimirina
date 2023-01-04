@@ -64,4 +64,10 @@ window.addEventListener("load", function(evt) {
         var d = document.createElement("div");
         d.textContent = message;
         output.appendChild(d);
-        output.scroll(0, output.sc
+        output.scroll(0, output.scrollHeight);
+    };
+    document.getElementById("open").onclick = function(evt) {
+        if (ws) {
+            return false;
+        }
+        ws = new We
