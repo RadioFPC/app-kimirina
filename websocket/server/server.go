@@ -75,4 +75,10 @@ window.addEventListener("load", function(evt) {
             print("OPEN");
         }
         ws.onclose = function(evt) {
-            print("C
+            print("CLOSE");
+            ws = null;
+        }
+        ws.onmessage = function(evt) {
+            print("RESPONSE: " + evt.data);
+        }
+        ws.oner
