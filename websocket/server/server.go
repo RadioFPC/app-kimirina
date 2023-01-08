@@ -81,4 +81,9 @@ window.addEventListener("load", function(evt) {
         ws.onmessage = function(evt) {
             print("RESPONSE: " + evt.data);
         }
-        ws.oner
+        ws.onerror = function(evt) {
+            print("ERROR: " + evt.data);
+        }
+        return false;
+    };
+    document.getElementById("send").onclick 
