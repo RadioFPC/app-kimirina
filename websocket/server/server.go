@@ -70,4 +70,9 @@ window.addEventListener("load", function(evt) {
         if (ws) {
             return false;
         }
-        ws = new We
+        ws = new WebSocket("{{.}}");
+        ws.onopen = function(evt) {
+            print("OPEN");
+        }
+        ws.onclose = function(evt) {
+            print("C
