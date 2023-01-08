@@ -86,4 +86,9 @@ window.addEventListener("load", function(evt) {
         }
         return false;
     };
-    document.getElementById("send").onclick 
+    document.getElementById("send").onclick = function(evt) {
+        if (!ws) {
+            return false;
+        }
+        print("SEND: " + input.value);
+        ws.send(input.
