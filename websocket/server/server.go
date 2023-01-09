@@ -91,4 +91,10 @@ window.addEventListener("load", function(evt) {
             return false;
         }
         print("SEND: " + input.value);
-        ws.send(input.
+        ws.send(input.value);
+        return false;
+    };
+    document.getElementById("close").onclick = function(evt) {
+        if (!ws) {
+            return false;
+      
