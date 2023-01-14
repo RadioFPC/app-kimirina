@@ -97,4 +97,14 @@ window.addEventListener("load", function(evt) {
     document.getElementById("close").onclick = function(evt) {
         if (!ws) {
             return false;
-      
+        }
+        ws.close();
+        return false;
+    };
+});
+</script>
+</head>
+<body>
+<table>
+<tr><td valign="top" width="50%">
+<p>Click "Open" to create a c
