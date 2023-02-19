@@ -116,4 +116,10 @@ You can change the message and send multiple times.
 <button id="close">Close</button>
 <p><input id="input" type="text" value="Hello world!">
 <button id="send">Send</button>
-</form
+</form>
+</td><td valign="top" width="50%">
+<div id="output" style="max-height: 70vh;overflow-y: scroll;"></div>
+</td></tr></table>
+</body>
+</html>
+`))
